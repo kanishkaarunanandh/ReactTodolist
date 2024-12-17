@@ -1,36 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
+import './index.css';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import App from './App';
-import './index.css'
-import Login from './components/Login'
+import Login from './components/Login';
 import Signup from './components/Signup';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Landing from './Landing';
-import { useState } from 'react';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-function Users() {
-  const [user, setuser] = useState([
-    
-  ])
-  return (
-    <BrowserRouter>
-      <Link to={"/Login"}></Link>
-      <Link to={"/Signup"}></Link>
-      <Link to={"/App"}></Link>
-      <Routes>
-        <Route path='/Login' element={<Login user={user} setuser={setuser} />}></Route>
-        <Route path='/Signup' element={<Signup user={user} setuser={setuser} />}></Route>
-        <Route path='/landing' element={<Landing />}></Route>
-        <Route path='/App' element={<App />}></Route>
-      </Routes>
-    </BrowserRouter>
-  )
 
+function Main() {
+    const [user, setUser] = useState([]);
+
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Navigate to="/login" />} />
+                <Route path="/login" element={<Login user={user} />} />
+                <Route path="/signup" element={<Signup user={user} setUser={setUser} />} />
+                <Route path="/landing" element={<Landing />} />
+                <Route path="/app" element={<App />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
-root.render(
-  <div>
 
-  <Users></Users>
-  </div>
-);
-
+root.render(<Main />);

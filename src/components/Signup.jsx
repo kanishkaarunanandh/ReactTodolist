@@ -8,8 +8,8 @@ function Signup(props) {
     const [uname, setUname] = useState("");
     const [pass, setPass] = useState("");
 
-    const user = props.user || [];
-    const setUser = props.setuser;
+    const user = props.user || [];  // Make sure to receive user from parent
+    const setUser = props.setUser;  // Make sure to receive setUser from parent
 
     function handleUsername(evt) {
         setUname(evt.target.value);
@@ -21,8 +21,8 @@ function Signup(props) {
 
     function addUser() {
         if (uname && pass) {
-            setUser([...user, { username: uname, password: pass }]);
-            navigate("/Login");
+            setUser([...user, { username: uname, password: pass }]);  // Update the user array in parent
+            navigate("/Login"); // Redirect to login after signup
         } else {
             alert("Please fill in all fields.");
         }

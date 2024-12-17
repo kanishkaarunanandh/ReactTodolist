@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 function AddTodoForm(props) {
     const activityarr = props.activityarr
@@ -18,6 +19,7 @@ function AddTodoForm(props) {
            <div>
            <input value={newactivity} onChange={handleChange} placeholder="Next Activity ?" className=" p-1  border border-black my-2"></input>
            <button onClick={addactivity} className="bg-black text-white p-1 border border-black">Add</button>
+           <Link to={'/login'} className="flex flex-row bg-[#8272DA] w-24 p-1 border rounded-md ">👉 Login</Link>
            </div>
            </div>
     )

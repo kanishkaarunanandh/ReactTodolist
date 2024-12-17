@@ -7,7 +7,7 @@ function App() {
     // State for the card data
     const [cardsData, setCardsData] = useState([
         { id: 1, bgcolour: "#8272DA", title: "25°C", subtitle: "Temperature" },
-        { id: 2, bgcolour: "#FD6663", title: getCurrentDate(), subtitle: getCurrentTime() },
+        { id: 2, bgcolour: "#FD6663", title: getCurrentDate(), subtitle: getCurrentTime() }, // Initial date/time
         { id: 3, bgcolour: "#FCA201", title: "Build Using", subtitle: "React" },
     ]);
 
@@ -22,7 +22,7 @@ function App() {
         }, 1000);
 
         return () => clearInterval(interval); // Cleanup interval on unmount
-    }, []);
+    }, []); // Empty dependency array means this effect runs only once on mount
 
     // Function to get the current date in "DD/MM/YYYY" format
     function getCurrentDate() {

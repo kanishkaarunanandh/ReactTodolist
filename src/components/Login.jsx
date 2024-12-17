@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 function Login(props) {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [uname, setUname] = useState("");
     const [pass, setPass] = useState("");
-    const user = props.user || [];
+    const user = props.user || []; // Ensure this is passed properly from parent component
 
     function handleUsername(evt) {
         setUname(evt.target.value);
@@ -23,13 +24,12 @@ function Login(props) {
             alert("Invalid credentials. Please try again.");
         }
     }
-    
 
     return (
         <div className="bg-black p-16">
             <div className="bg-white p-10 border rounded-md">
-            <h1 className="text-3xl font-medium">Hey Hi 👋 </h1>
-            <p>I help you manage your activities after you login :)</p>
+                <h1 className="text-3xl font-medium">Hey Hi 👋 </h1>
+                <p>I help you manage your activities after you login :)</p>
                 <div className="my-3 flex flex-col gap-2">
                     <input
                         onChange={handleUsername}
@@ -43,7 +43,7 @@ function Login(props) {
                         className="border border-black w-52 p-1 rounded-md"
                     />
                     <button
-                        className="bg-[#FCA201] w-24 p-1 border rounded-md"
+                        className="bg-[#8272DA] w-24 p-1 border rounded-md"
                         onClick={handleLogin}
                     >
                         Login
